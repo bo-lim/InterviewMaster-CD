@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: itm-fre-all-nms
+  labels:
+    app: interviewmaster
+    version: v1.0.0
+    tier: frontend
+  name: itm-fre-all-dpl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: interviewmaster
+      version: v1.0.0
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: interviewmaster
+        version: v1.0.0
+        tier: frontend
+    spec:
+      containers:
+      - image: leebolim0701471/fre-all:4.3
+        name: itm-fre-all-pod
+        ports:
+        - containerPort: 3000
+
