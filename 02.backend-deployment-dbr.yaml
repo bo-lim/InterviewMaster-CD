@@ -16,7 +16,7 @@ spec:
         tier: backend
     spec:
       containers:
-      - image: jongik0217/test:1.09
+      - image: jongik0217/test:1.10
         name: itm-bce-dbr
         ports:
         - containerPort: 8000
