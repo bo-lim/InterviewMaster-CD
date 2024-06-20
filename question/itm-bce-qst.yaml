@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itm-bce-qst-dpl
+  namespace: itm-bce-qst-nms
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: interviewmaster
+  template:
+    metadata:
+      labels:
+        app: interviewmaster
+        version: v1.0
+        tier: backend
+    spec:
+      containers:
+      - name: interviewmaster
+        image: docker.io/wooosik/bce-qst:3.0
+        envFrom:
+        - secretRef:
+            name: bce-qst-scr
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: itm-bce-qst-svc
+  namespace: itm-bce-qst-nms
+spec:
+  selector:
+    app: interviewmaster
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+
+
