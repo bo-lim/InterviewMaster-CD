@@ -22,7 +22,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: kangyejini/im:7.01
+      - image: kangyejini/im:7.02
         name: itm-fre-all-pod
         ports:
         - containerPort: 3000
