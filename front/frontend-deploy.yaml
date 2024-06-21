@@ -21,7 +21,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: kangyejini/im:7.08
+      - image: kangyejini/im:7.09
         name: itm-fre-all-pod
         resources:
           limits:
