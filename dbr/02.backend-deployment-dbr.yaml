@@ -20,6 +20,9 @@ spec:
         name: itm-bce-dbr
         ports:
         - containerPort: 8000
+        env:
+        - name: env
+          value: k8s
 ---
 apiVersion: v1
 kind: Service
